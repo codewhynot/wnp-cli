@@ -1,0 +1,16 @@
+{
+  "name": "@wnp/cli",
+  "version": "1.0.2",
+  "description": "Whynotpack CLI",
+  "main": "index.js",
+  "author": "codewhynot",
+  "license": "ISC",
+  "repository": "https://github.com/codewhynot/wnp.git",
+  "devDependencies": {
+    "commander": "^2.19.0"
+  },
+  "bin": {
+    "wnp": "bin/wnp.js"
+  }
+}
+wnp
