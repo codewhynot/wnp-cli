@@ -1,15 +1,22 @@
 {
   "name": "@wnp/cli",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Whynotpack CLI",
   "main": "index.js",
   "author": "codewhynot",
   "license": "ISC",
   "repository": "https://github.com/codewhynot/wnp.git",
-  "devDependencies": {
-    "commander": "^2.19.0"
-  },
   "bin": {
     "wnp": "bin/wnp.js"
+  },
+  "dependencies": {
+    "chalk": "^2.4.2",
+    "command-line-usage": "^5.0.5",
+    "commander": "^2.19.0",
+    "download-git-repo": "^1.1.0",
+    "figlet": "^1.2.1",
+    "fs-extra": "^7.0.1",
+    "inquirer": "^6.2.2",
+    "shelljs": "^0.8.3"
   }
 }
