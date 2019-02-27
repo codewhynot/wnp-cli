@@ -5,7 +5,7 @@ module.exports = data => {
   console.log(
       visual.cyan(
           letters.textSync("whynotpack", {
-              font: "standard",
+              font: "Standart",
               horizontalLayout: "default",
               verticalLayout: "default"
           })
