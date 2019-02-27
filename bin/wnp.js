@@ -1,51 +1,57 @@
 #! /usr/bin/env node
+
+//modules
 const programm = require('commander');
-const figlet = require("figlet");
-const chalk = require("chalk");
-const commandLineUsage = require('command-line-usage');
+
+//services
+const validateCommand = require('./services/validate-command');
+const welcome = require('./services/welcome-info');
 
 //commands
 const init = require('./commands/init');
+const help = require('./commands/help');
+const addComponent = require('./commands/add-component');
+const addPage = require('./commands/add-page');
+const deploy = require('./commands/deploy');
 
-const commands = [
-    {
-        header: 'Command List',
-        content: [
-            { name: '{bold help}', summary: 'Display help information about Whynotpack-cli.' },
-            { name: '{bold init}', summary: 'Initializing Whynotpack in current direction' },
-        ]
+//params
+const commands = process.argv;
+const command = process.argv.slice(2);
+
+const makeProgramm = data => {
+    switch (data) {
+        case 'init':
+            init(data);
+            break;
+        case 'help':
+            help(data);
+            break;
+        case 'add-component':
+            addComponent(data);
+            break;
+        case 'add-page':
+            addPage(data);
+            break;
+        case 'deploy':
+            deploy(data);
+            break;
     }
-]
-const help = commandLineUsage(commands)
+};
+
+validateCommand(command, ( success, input ) => {
+    if ( success ) {
+        welcome(input);
+        programm
+            .command(input)
+            .action(() => {
+                makeProgramm(input);
+            });
+        programm.parse(commands);
+    } else {
+        help();
+    }
+});
 
 
-if (process.argv.slice(2).length <= 0) {
-    console.log(chalk.cyan(
-        figlet.textSync("whynotpack", {
-            font: "standard",
-            horizontalLayout: "default",
-            verticalLayout: "default"
-        })
-    ));
-    console.log(chalk.cyan('\n Welcome to WHYNOTPACK CLI'));
-    console.log(chalk.cyan(help))
-} else {
-    console.log(chalk.yellow(
-        figlet.textSync("whynotpack", {
-            font: "standard",
-            horizontalLayout: "default",
-            verticalLayout: "default"
-        })
-    ));
-    console.log(chalk.green('\n Welcome to WHYNOTPACK CLI'));
-    programm
-        .command('init')
-        .action(() => {
-            init();
-        });
-}
-
-
-programm.parse(process.argv);
 
 

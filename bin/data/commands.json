@@ -1,0 +1,41 @@
+{
+  "helpCommands": [
+    {
+      "init": {
+        "name": "init",
+        "description": "Unpacks Whynotpack to the current folder."
+      }
+    },
+    {
+      "help": {
+        "name": "help",
+        "description": "Display help information about Whynotpack-cli."
+      }
+    },
+    {
+      "add-page": {
+        "name": "add-page",
+        "description": "Adds new page in your project"
+      }
+    },
+    {
+      "add-component": {
+        "name": "add-component",
+        "description": "Adds new component in your project."
+      }
+    },
+    {
+      "deploy": {
+        "name": "deploy",
+        "description": "Deploy your markup to gh-pages"
+      }
+    }
+  ],
+  "commandsArray": [
+    "init",
+    "help",
+    "add-page",
+    "add-component",
+    "deploy"
+  ]
+}
