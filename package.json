@@ -1,6 +1,6 @@
 {
   "name": "@wnp/cli",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "description": "Whynotpack CLI",
   "main": "index.js",
   "author": "codewhynot",

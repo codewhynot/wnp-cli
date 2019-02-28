@@ -1,0 +1,31 @@
+{
+  "init": {
+    "name": "result",
+    "type": "input",
+    "message": "What is your project name?"
+  },
+  "clean": {
+    "name": "result",
+    "type": "confirm",
+    "message": "Do you want to clean current folder?"
+  },
+  "dep": {
+    "name": "result",
+    "type": "confirm",
+    "message": "Do uou want to install dependencies?"
+  },
+  "component": {
+    "name": "result",
+    "type": "input",
+    "message": "Please enter component name"
+  },
+  "type": {
+    "name": "result",
+    "type": "rawlist",
+    "message": "What component do you want to create?",
+    "choices": [
+      "Full component (hbs,js,scss)",
+      "Only 'hbs' file"
+    ]
+  }
+}
