@@ -19,6 +19,11 @@
     "type": "input",
     "message": "Please enter component name"
   },
+  "page": {
+    "name": "result",
+    "type": "input",
+    "message": "Please enter page name"
+  },
   "type": {
     "name": "result",
     "type": "rawlist",
@@ -27,5 +32,16 @@
       "Full component (hbs,js,scss)",
       "Only 'hbs' file"
     ]
+  },
+  "repository": {
+    "name": "result",
+    "type": "input",
+    "message": "Please enter your repository url"
+  },
+  "branch": {
+    "name": "result",
+    "type": "input",
+    "message": "Please enter the branch to which you want to add changes.",
+    "default": "gh-pages"
   }
 }

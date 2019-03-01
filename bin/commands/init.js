@@ -11,38 +11,38 @@ const notify = require('../services/notify');
 
 
 const initProject = project => {
-  checkFolder ( () => {
-    getProjects(() => {
-      changePackage( project, success => {
-        if(success) {
-          ask('dep', answer => {
-            if (answer) {
-              shell.exec('npm install');
-            } else {
-              notify('Enjoy your work! ;)', 'success');
-            }
-          });
-        }
-      });
-    })
-  });
+  getProjects(() => {
+    changePackage( {name: project}, success => {
+      if(success) {
+        ask('dep', answer => {
+          if (answer) {
+            shell.exec('npm install');
+          } else {
+            notify('Enjoy your work! ;)', 'success');
+          }
+        });
+      }
+    });
+  })
 };
 
 const validateProject = callback => {
-  ask('init', project => {
-    let match = /^[a-zA-Z]+$/.test(project);
-    if (match) {
-      callback(project);
-    } else {
-      notify('Please use a valid project name', 'error');
-      validateProject(callback);
-      return;
-    }
+  checkFolder ( () => {
+    ask('init', project => {
+      let match = /^[a-zA-Z]+$/.test(project);
+      if (match) {
+        callback(project);
+      } else {
+        notify('Please use a valid project name', 'error');
+        validateProject(callback);
+        return false;
+      }
+    });
   });
 };
 
 
-module.exports = (args) => {
+module.exports = () => {
   validateProject( project => {
     initProject (project);
   });
