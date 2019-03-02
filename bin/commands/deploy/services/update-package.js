@@ -1,6 +1,9 @@
+//modules
 const { resolve } = require('path');
 const { readFile, writeFile } = require('fs');
-const notify = require('./notify');
+
+//global services
+const notify = require('../../../global-services/notify');
 
 module.exports = ( params,callback ) => {
     if (params) {

@@ -1,24 +1,24 @@
 #! /usr/bin/env node
 
 //modules
-const programm = require('commander');
+const program = require('commander');
 
 //services
-const validateCommand = require('./services/validate-command');
-const welcome = require('./services/welcome-info');
+const validateCommand = require('./global-services/validate-command');
+const welcome = require('./global-services/welcome-info');
 
 //commands
-const init = require('./commands/init');
-const help = require('./commands/help');
-const addComponent = require('./commands/add-component');
-const addPage = require('./commands/add-page');
-const deploy = require('./commands/deploy');
+const init = require('./commands/init/program');
+const help = require('./commands/help/program');
+const addComponent = require('./commands/add-component/program');
+const addPage = require('./commands/add-page/program');
+const deploy = require('./commands/deploy/program');
 
 //params
 const commands = process.argv;
 const command = process.argv.slice(2);
 
-const makeProgramm = data => {
+const makeProgram = data => {
     switch (data) {
         case 'init':
             init(data);
@@ -41,12 +41,12 @@ const makeProgramm = data => {
 validateCommand(command, ( success, input ) => {
     if ( success ) {
         welcome(input);
-        programm
+        program
             .command(input)
             .action(() => {
-                makeProgramm(input);
+                makeProgram(input);
             });
-        programm.parse(commands);
+        program.parse(commands);
     } else {
         help();
     }

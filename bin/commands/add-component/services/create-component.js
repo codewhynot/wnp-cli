@@ -2,8 +2,8 @@
 const { resolve } = require('path');
 const { writeFile } = require('fs');
 
-//services
-const notify = require('./notify');
+//global services
+const notify = require('../../../global-services/notify');
 
 module.exports = ( path, component, type, content, callback ) => {
     writeFile(resolve(path,component,`${component + type}`), content, (err) => {

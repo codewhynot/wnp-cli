@@ -3,7 +3,7 @@ const { readFile, writeFile } = require('fs');
 const { resolve } = require('path');
 
 //services
-const notify = require('../services/notify');
+const notify = require('../../../global-services/notify');
 
 module.exports = ( path, page, callback ) => {
     readFile(resolve(path, 'config/pagelist.json'), (err,data) => {

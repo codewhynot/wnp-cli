@@ -1,24 +1,25 @@
 //modules
-const deploy = require('gh-pages');
+const program = require('gh-pages');
 
-//services
-const changePackgage = require('../services/change-package');
-const parsePackage = require('../services/parse-package');
-const checkFolder = require('../services/check');
-const notify = require('../services/notify');
-const ask = require('../services/asker');
+//global services
+const notify = require('../../global-services/notify');
+const ask = require('../../global-services/asker');
 
-//variables
+//local services
+const updatePackage = require('./services/update-package');
+const parsePackage = require('./services/parse-package');
+const checkFolder = require('./services/check-folder');
+
 
 const repoAsker = callback => {
     ask('repository', repo => {
         let match = /^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+$/gm.test(repo);
         if (match) {
-            changePackgage({repository: repo}, () => {
+            updatePackage({repository: repo}, () => {
                 ask('branch', branch => {
                     let match = /^[a-zA-Z_-]+$/.test(branch);
                     if (match) {
-                        changePackgage({deployBranch: branch}, () => {
+                        updatePackage({deployBranch: branch}, () => {
                             callback({repository: repo, deployBranch: branch });
                         });
                     } else {
@@ -38,7 +39,7 @@ const repoAsker = callback => {
 
 const makeProgramm = ( data,path,callback ) => {
     if (data.repository && data.deployBranch) {
-        deploy.publish(path, {
+        program.publish(path, {
             branch: data.deployBranch,
             repo: data.repository
         }, response => {

@@ -1,5 +1,5 @@
 {
-  "helpCommands": [
+  "commands": [
     {
       "init": {
         "name": "init",
@@ -30,12 +30,5 @@
         "description": "Deploy your markup to gh-pages"
       }
     }
-  ],
-  "commandsArray": [
-    "init",
-    "help",
-    "add-page",
-    "add-component",
-    "deploy"
   ]
 }

@@ -1,10 +1,13 @@
-//services
-const notify = require('../services/notify');
-const ask = require('../services/asker');
-const check = require('../services/check');
-const createPage = require('../services/create-page');
-const getLayout = require('../services/get-layout');
-const updatePageList = require('../services/save-page');
+//global services
+const notify = require('../../global-services/notify');
+const ask = require('../../global-services/asker');
+
+//local services
+const checkFolder = require('./services/check-folder');
+const createPage = require('./services/create-page');
+const getLayout = require('./services/get-layout');
+const updatePageList = require('./services/update-pagelist');
+
 
 const makeProgramm = ( path, page ) => {
     getLayout (path, layout => {
@@ -16,7 +19,7 @@ const makeProgramm = ( path, page ) => {
 };
 
 const validatePageName = callback => {
-    check ('app/pages',path  => {
+    checkFolder ('app/pages',path  => {
         ask('page', page => {
             let match = /^[a-zA-Z_]+$/.test(page);
             if (match) {

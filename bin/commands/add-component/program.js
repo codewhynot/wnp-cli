@@ -2,19 +2,23 @@
 const { mkdirSync } = require('fs');
 const { resolve } = require('path');
 
-//services
-const notify = require('../services/notify');
-const ask = require('../services/asker');
-const check = require('../services/check');
-const createComponent= require('../services/create-component');
-const addImport = require('../services/add-import');
+//global services
+const notify = require('../../global-services/notify');
+const ask = require('../../global-services/asker');
+
+//local services
+const checkFolder = require('./services/check-folder');
+const createComponent = require('./services/create-component');
+const updateImports = require('./services/update-imports');
+
+
 
 const makeProgramm = ( path, component ) => {
     mkdirSync(resolve(path,component), { recursive: true });
     createComponent(path,component,'.hbs','', () => {
         createComponent(path,component,'.scss','', () => {
             createComponent(path,component,'.js','', () => {
-                addImport(component,path);
+                updateImports(component,path);
             });
         });
     });
@@ -22,7 +26,7 @@ const makeProgramm = ( path, component ) => {
 
 
 const validateComponentName = callback => {
-    check ('app/components', path  => {
+    checkFolder ('app/components', path  => {
         ask('component', component => {
             let match = /^[a-zA-Z_]+$/.test(component);
             if (match) {

@@ -1,0 +1,10 @@
+{
+
+  "commandsArray": [
+    "init",
+    "help",
+    "add-page",
+    "add-component",
+    "deploy"
+  ]
+}

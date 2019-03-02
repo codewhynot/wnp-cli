@@ -1,6 +1,9 @@
+//modules
 const { resolve } = require('path');
 const { readFile } = require('fs');
-const notify = require('./notify');
+
+//global services
+const notify = require('../../../global-services/notify');
 
 module.exports = callback => {
     readFile(resolve(process.cwd(), 'package.json'), (err,data) => {

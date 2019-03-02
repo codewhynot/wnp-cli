@@ -1,18 +1,21 @@
 //modules
 const shell = require('shelljs');
 
-//services
-const checkFolder = require('../services/check-folder');
-const changePackage = require('../services/change-package');
-const getProjects = require('../services/get-projects');
-const ask = require('../services/asker');
-const notify = require('../services/notify');
+//global services
+const ask = require('../../global-services/asker');
+const notify = require('../../global-services/notify');
+
+//local services
+const checkFolder = require('./services/check-folder');
+const updatePackage = require('./services/update-package');
+const downloadProject = require('./services/download-project');
+
 
 
 
 const initProject = project => {
-  getProjects(() => {
-    changePackage( {name: project}, success => {
+  downloadProject(() => {
+    updatePackage( {name: project}, success => {
       if(success) {
         ask('dep', answer => {
           if (answer) {

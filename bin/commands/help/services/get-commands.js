@@ -1,7 +1,7 @@
-const commands = require('../data/commands');
+const data = require('../data/commands');
 
 module.exports = () => {
-    const commandsArray = commands.helpCommands;
+    const commandsArray = data.commands;
     let res = [
         {
             header: 'Command list',

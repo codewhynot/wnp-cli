@@ -1,8 +1,10 @@
+//modules
 const { emptyDir } = require('fs-extra');
 const { readdir } = require('fs');
 
-const notify = require('./notify');
-const ask = require('./asker');
+//global services
+const notify = require('../../../global-services/notify');
+const ask = require('../../../global-services/asker');
 
 module.exports = callback => {
     readdir(process.cwd(), (err,items) => {

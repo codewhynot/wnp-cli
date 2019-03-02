@@ -1,4 +1,4 @@
-const commands = require('../data/commands');
+const commands = require('../global-data/commands');
 
 module.exports = (data,callback) => {
     let arrayForCheck = commands.commandsArray;
