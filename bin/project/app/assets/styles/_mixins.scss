@@ -1,0 +1,11 @@
+@mixin max ($witdh) {
+  @media (max-width: #{$witdh}px) {
+    @content;
+  }
+}
+
+@mixin min ($witdh) {
+  @media (min-width: #{$witdh}px) {
+    @content;
+  }
+}

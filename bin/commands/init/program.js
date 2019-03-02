@@ -2,8 +2,8 @@
 const shell = require('shelljs');
 
 //global services
-const ask = require('../../global-services/asker');
-const notify = require('../../global-services/notify');
+const ask = require('../../services/asker');
+const notify = require('../../services/notify');
 
 //local services
 const checkFolder = require('./services/check-folder');

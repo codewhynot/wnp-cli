@@ -4,8 +4,8 @@
 const program = require('commander');
 
 //services
-const validateCommand = require('./global-services/validate-command');
-const welcome = require('./global-services/welcome-info');
+const validateCommand = require('./services/validate-command');
+const welcome = require('./services/welcome-info');
 
 //commands
 const init = require('./commands/init/program');

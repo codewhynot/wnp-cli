@@ -2,8 +2,8 @@
 const commandLineUsage = require('command-line-usage');
 
 //global services
-const welcome = require('../../global-services/welcome-info');
-const notify = require('../../global-services/notify');
+const welcome = require('../../services/welcome-info');
+const notify = require('../../services/notify');
 
 //local services
 const commands = require('./services/get-commands');

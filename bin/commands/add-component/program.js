@@ -3,8 +3,8 @@ const { mkdirSync } = require('fs');
 const { resolve } = require('path');
 
 //global services
-const notify = require('../../global-services/notify');
-const ask = require('../../global-services/asker');
+const notify = require('../../services/notify');
+const ask = require('../../services/asker');
 
 //local services
 const checkFolder = require('./services/check-folder');

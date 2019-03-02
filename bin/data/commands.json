@@ -1,6 +1,5 @@
 {
-
-  "commandsArray": [
+  "commands": [
     "init",
     "help",
     "add-page",

@@ -2,8 +2,8 @@
 const program = require('gh-pages');
 
 //global services
-const notify = require('../../global-services/notify');
-const ask = require('../../global-services/asker');
+const notify = require('../../services/notify');
+const ask = require('../../services/asker');
 
 //local services
 const updatePackage = require('./services/update-package');

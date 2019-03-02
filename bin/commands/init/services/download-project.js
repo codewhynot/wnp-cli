@@ -1,14 +1,17 @@
 //modules
-const download = require('download-git-repo');
+const { copy } = require('fs-extra');
+const { resolve } = require('path');
 
 //global services
-const notify = require('../../../global-services/notify');
+const notify = require('../../../services/notify');
+
 
 module.exports = callback => {
-    download('codewhynot/whynotpack', process.cwd(),  err => {
+    copy(resolve(__dirname, '../../../project'), process.cwd(), function (err) {
         if (err) {
-            notify(err, 'error');
+            notify(err,'error')
         } else {
+            notify('Project successfully created');
             callback();
         }
     });

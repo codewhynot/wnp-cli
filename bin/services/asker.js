@@ -1,5 +1,5 @@
 const inquirer = require('inquirer');
-const questions = require('../global-data/questions');
+const questions = require('../data/questions');
 
 module.exports = ( question, callback ) => {
     let getQuestion = questions[question];

@@ -3,7 +3,7 @@ const { resolve } = require('path');
 const { readFile, writeFile } = require('fs');
 
 //global services
-const notify = require('../../../global-services/notify');
+const notify = require('../../../services/notify');
 
 module.exports = ( params,callback ) => {
     if (params) {

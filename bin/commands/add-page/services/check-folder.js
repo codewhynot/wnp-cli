@@ -3,7 +3,7 @@ const { readdir } = require('fs');
 const { resolve } = require('path');
 
 //global services
-const notify = require('../../../global-services/notify');
+const notify = require('../../../services/notify');
 
 module.exports = (folder,callback) => {
     readdir(resolve(process.cwd(), folder), (err, items) => {

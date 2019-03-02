@@ -1,6 +1,6 @@
 {
   "name": "@wnp/cli",
-  "version": "1.1.01",
+  "version": "1.1.2",
   "description": "Whynotpack CLI",
   "main": "index.js",
   "author": "codewhynot",
@@ -14,7 +14,6 @@
     "chalk": "^2.4.2",
     "command-line-usage": "^5.0.5",
     "commander": "^2.19.0",
-    "download-git-repo": "^1.1.0",
     "fs-extra": "^7.0.1",
     "gh-pages": "^2.0.1",
     "inquirer": "^6.2.2",

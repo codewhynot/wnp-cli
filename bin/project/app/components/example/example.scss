@@ -1,0 +1,59 @@
+@keyframes Beat {
+  50% {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+}
+
+
+.example {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(-45deg, darken($background,10%), $background);
+  min-height: 100vh;
+  &__image {
+    width: 150px;
+    height: 150px;
+    animation: Beat 1s ease-in-out infinite;
+    //background: url('~images/light.svg');
+    img {
+      width: 100%;
+    }
+  }
+  &__text {
+    margin-top: 40px;
+    p {
+      font-size: 40px;
+      text-align: center;
+      line-height: 1.5;
+      color: #fff;
+      font-family: $roboto;
+      @include max (600) {
+        font-size: 28px;
+      }
+    }
+    span {
+      margin-top: 10px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      font-family: $roboto;
+      line-height: 1.5;
+      color: #fff;
+      a {
+        text-decoration: none;
+        margin-top: 5px;
+        font-size: 16px;
+        transition: .3s ease;
+        color: yellow;
+        &:hover {
+          color: darken(yellow, 15%);
+        }
+      }
+    }
+  }
+}

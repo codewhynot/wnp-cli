@@ -3,7 +3,7 @@ const { readFile,writeFile } = require('fs');
 const { resolve } = require('path');
 
 //global services
-const notify = require('../../../global-services/notify');
+const notify = require('../../../services/notify');
 
 module.exports = ( component, path ) => {
     const importPath = resolve(path, 'components.scss');
