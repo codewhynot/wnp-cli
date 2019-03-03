@@ -1,5 +1,6 @@
 //modules
 const program = require('gh-pages');
+const ora = require('ora');
 
 //global services
 const notify = require('../../services/notify');
@@ -10,24 +11,15 @@ const updatePackage = require('./services/update-package');
 const parsePackage = require('./services/parse-package');
 const checkFolder = require('./services/check-folder');
 
+//variables
+const spinner = ora('Deploying project');
 
 const repoAsker = callback => {
     ask('repository', repo => {
         let match = /^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+$/gm.test(repo);
         if (match) {
             updatePackage({repository: repo}, () => {
-                ask('branch', branch => {
-                    let match = /^[a-zA-Z_-]+$/.test(branch);
-                    if (match) {
-                        updatePackage({deployBranch: branch}, () => {
-                            callback({repository: repo, deployBranch: branch });
-                        });
-                    } else {
-                        notify('Please enter valid branch', 'error');
-                        repoAsker(callback);
-                        return false;
-                    }
-                })
+                callback({repository: repo, deployBranch: 'gh-pages'});
             });
         } else {
             notify('Please enter valid url', 'error');
@@ -38,11 +30,14 @@ const repoAsker = callback => {
 };
 
 const makeProgramm = ( data,path,callback ) => {
-    if (data.repository && data.deployBranch) {
+    data.deployBranch = data.deployBranch ? data.deployBranch : 'gh-pages';
+    if (data.repository) {
+        spinner.start();
         program.publish(path, {
             branch: data.deployBranch,
             repo: data.repository
         }, response => {
+            spinner.stop();
             if (response) {
                 notify("Process error, this repository doesn't exist.", 'error');
                 repoAsker(response => {

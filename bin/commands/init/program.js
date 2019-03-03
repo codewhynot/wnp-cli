@@ -4,12 +4,15 @@ const shell = require('shelljs');
 //global services
 const ask = require('../../services/asker');
 const notify = require('../../services/notify');
+const ora = require('ora');
 
 //local services
 const checkFolder = require('./services/check-folder');
 const updatePackage = require('./services/update-package');
 const downloadProject = require('./services/download-project');
 
+//variables
+const spinner = ora('Installing dependencies');
 
 
 
@@ -17,12 +20,12 @@ const initProject = project => {
   downloadProject(() => {
     updatePackage( {name: project}, success => {
       if(success) {
-        ask('dep', answer => {
-          if (answer) {
-            shell.exec('npm install');
-          } else {
-            notify('Enjoy your work! ;)', 'success');
-          }
+        spinner.start();
+        shell.exec('npm install', () => {
+          spinner.stop();
+          notify('Whynotpack is read to work', 'success');
+          notify('Use "wnp dev" to start server', 'info');
+          notify('Enjoy!','success');
         });
       }
     });

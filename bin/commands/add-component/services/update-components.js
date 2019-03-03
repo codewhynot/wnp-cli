@@ -5,24 +5,24 @@ const { resolve } = require('path');
 //services
 const notify = require('../../../services/notify');
 
-module.exports = ( path, page, callback ) => {
-    readFile(resolve(process.cwd(), 'app/core/config/pages/pagelist.json'), (err,data) => {
+module.exports = ( path, component, callback ) => {
+    readFile(resolve(process.cwd(), 'app/core/config/components/components.json'), (err,data) => {
         let result = data.toString();
         let parsed = JSON.parse(result);
-        if (!parsed.pages.includes(page)) {
-            parsed.pages.push(page);
+        if (!parsed.components.includes(component)) {
+            parsed.components.push(component);
             let content = JSON.stringify(parsed);
-            writeFile(resolve(process.cwd(), 'app/core/config/pages/pagelist.json'), content, (err) => {
+            writeFile(resolve(process.cwd(), 'app/core/config/components/components.json'), content, (err) => {
                 if (err) {
                     notify(err,'error');
                     throw err;
                 } else {
-                    notify('Pagelist successfully updated','success');
+                    notify('Components list successfully updated','success');
                     if (callback) callback();
                 }
             });
         } else {
-            notify('This page is already registered.','error');
+            notify('This component is already registered.','error');
             return false;
         }
     })

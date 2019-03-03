@@ -5,14 +5,14 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const autoprefixer = require('autoprefixer');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const HtmlWebpackInlineSVGPlugin = require('html-webpack-inline-svg-plugin');
-const pagelist = require('./config/pages/pagelist');
+const pagelist = require('./app/core/config/pages/pagelist');
 const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
 const MODE = process.env.NODE_ENV;
 
 const createPages = () => {
     return pagelist.pages.map(page => {
         return new HtmlWebpackPlugin({
-            template: `./core/config/pages/${page}.hbs`,
+            template: `./pages/${page}.hbs`,
             filename: `./${page}.html`
         })
     })

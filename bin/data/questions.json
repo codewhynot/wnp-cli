@@ -43,5 +43,10 @@
     "type": "input",
     "message": "Please enter the branch to which you want to add changes.",
     "default": "gh-pages"
+  },
+  "build": {
+    "name": "result",
+    "type": "confirm",
+    "message": "Do you want to build project?"
   }
 }

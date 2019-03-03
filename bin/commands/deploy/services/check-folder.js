@@ -1,17 +1,36 @@
 //modules
 const { readdir } = require('fs');
 const { resolve } = require('path');
+const { exec } = require('shelljs');
+const ora = require('ora');
 
 //global services
 const notify = require('../../../services/notify');
+const ask = require('../../../services/asker');
 
-module.exports = (folder,callback) => {
-    readdir(resolve(process.cwd(), folder), (err, items) => {
-        if (err || !items.length) {
-            notify('Folder is not found or empty','error');
-            return false;
+//variables
+const spinner = ora('Building project');
+
+module.exports = (item,callback) => {
+    readdir(resolve(process.cwd()), (err, items) => {
+        if (items.includes(item)) {
+            if (err) {
+                notify(err,'error');
+                return false;
+            } else {
+                callback(resolve(process.cwd(), 'build'));
+            }
         } else {
-            callback(resolve(process.cwd(), folder));
+            notify('Build folder is not found', 'error');
+            ask('build', answer => {
+               if (answer) {
+                   spinner.start();
+                   exec('npm run build', () => {
+                       spinner.stop();
+                       callback(resolve(process.cwd(), 'build'));
+                   })
+               }
+            });
         }
     });
 };
