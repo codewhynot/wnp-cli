@@ -1,4 +1,6 @@
+//modules
 const color = require("chalk");
+
 
 module.exports = ( text, type) => {
   switch (type) {

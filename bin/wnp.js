@@ -13,6 +13,9 @@ const help = require('./commands/help/program');
 const addComponent = require('./commands/add-component/program');
 const addPage = require('./commands/add-page/program');
 const deploy = require('./commands/deploy/program');
+const build = require('./commands/build/program');
+const dev = require('./commands/dev/program');
+
 
 //params
 const commands = process.argv;
@@ -34,6 +37,12 @@ const makeProgram = data => {
             break;
         case 'deploy':
             deploy(data);
+            break;
+        case 'build':
+            build(data);
+            break;
+        case 'dev':
+            dev(data);
             break;
     }
 };

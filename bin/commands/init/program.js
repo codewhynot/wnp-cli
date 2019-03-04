@@ -23,7 +23,7 @@ const initProject = project => {
         spinner.start();
         shell.exec('npm install', () => {
           spinner.stop();
-          notify('Whynotpack is read to work', 'success');
+          notify('Whynotpack is ready to work', 'success');
           notify('Use "wnp dev" to start server', 'info');
           notify('Enjoy!','success');
         });

@@ -29,6 +29,18 @@
         "name": "deploy",
         "description": "Deploy your markup to gh-pages"
       }
+    },
+    {
+      "build": {
+        "name": "build",
+        "description": "Build project"
+      }
+    },
+    {
+      "dev": {
+        "name": "dev",
+        "description": "Server startup"
+      }
     }
   ]
 }

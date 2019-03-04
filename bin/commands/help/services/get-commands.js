@@ -1,4 +1,4 @@
-const data = require('../data/commands');
+const data = require('../../../data/help-commands');
 
 module.exports = () => {
     const commandsArray = data.commands;

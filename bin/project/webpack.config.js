@@ -26,6 +26,7 @@ const plugins = createPages().concat([
         $: "jquery",
         jQuery: "jquery",
     }),
+
     new HtmlWebpackInlineSVGPlugin({
         runPreEmit: true,
     }),
@@ -36,6 +37,7 @@ const plugins = createPages().concat([
     new webpack.HotModuleReplacementPlugin(),
     new BrowserSyncPlugin({
         proxy: 'http://localhost:8080/',
+        open: false
     }),
 ]);
 

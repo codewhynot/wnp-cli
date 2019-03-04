@@ -4,6 +4,8 @@
     "help",
     "add-page",
     "add-component",
-    "deploy"
+    "deploy",
+    "dev",
+    "build"
   ]
 }

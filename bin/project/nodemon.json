@@ -1,0 +1,4 @@
+{
+  "watch": "./app/core/config/pages/pagelist.json",
+  "exec": "cross-env NODE_ENV=development webpack-dev-server"
+}
