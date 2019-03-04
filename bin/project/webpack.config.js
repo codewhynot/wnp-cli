@@ -108,6 +108,9 @@ module.exports = (env, argv) => {
                                     autoprefixer({
                                         browsers:['ie >= 8', 'last 4 version']
                                     }),
+                                    require('cssnano')({
+                                        preset: 'default',
+                                    }),
                                 ],
                             },
                         },
@@ -126,7 +129,7 @@ module.exports = (env, argv) => {
                 './assets/styles/main.scss'
             ],
         },
-        devtool: MODE === '',
+        devtool: MODE === 'development' ? 'eval' : 'source-map' ,
         plugins: plugins,
         resolve: {
             alias: {
