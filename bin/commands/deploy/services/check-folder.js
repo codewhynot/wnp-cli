@@ -25,7 +25,7 @@ module.exports = (item,callback) => {
             ask('build', answer => {
                if (answer) {
                    spinner.start();
-                   exec('wnp build', () => {
+                   exec('npm run build', () => {
                        spinner.stop();
                        callback(resolve(process.cwd(), 'build'));
                    })
