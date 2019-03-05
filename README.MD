@@ -3,8 +3,8 @@
 Утилита для управления сборщиком Whynotpack. 
 
 <ul>
-    <li><a href="Установка">Установка</a></li>
-    <li><a href="Установка">Доступные команды</a></li>
+    <li><a href="#Установка">Установка</a></li>
+    <li><a href="#Доступные-команды">Доступные команды</a></li>
 </ul>
 
 
@@ -38,11 +38,11 @@ ___
 
 Данная команда создаёт новый компонент по пути **app/components**, компонент состоит из трёх файлов:
 
-**- component.hbs (handlebars файл)**
+`- component.hbs (handlebars файл)`
 
-**- component.js (JavaScript файл)**
+`- component.js (JavaScript файл)`
 
-**- component.scss (стилевой файл)**
+`- component.scss (стилевой файл)`
 
 А так же автоматически импортирует стилевой файл компонента в главный стилевой файл. 
 ___
@@ -77,12 +77,12 @@ ___
 
 
 <ul>
-    <li><a href="Компоненты handlebars">Компоненты handlebars</a></li>
-    <li><a href="Хелперы handlebars">Хелперы handlebars</a></li>
-    <li><a href="Инлайновые SVG">Инлайновые SVG</a></li>
-    <li><a href="Картинки в html">Картинки в html</a></li>
-    <li><a href="Фавиконки">Фавиконки</a></li>
-    <li><a href="Пути в SCSS">Пути в SCSS</a></li>
+    <li><a href="#Компоненты-handlebars">Компоненты handlebars</a></li>
+    <li><a href="#Хелперы-handlebars">Хелперы handlebars</a></li>
+    <li><a href="#Инлайновые-SVG">Инлайновые SVG</a></li>
+    <li><a href="#Картинки-в-html">Картинки в html</a></li>
+    <li><a href="#Фавиконки">Фавиконки</a></li>
+    <li><a href="#Пути-в-SCSS">Пути в SCSS</a></li>
 </ul>
 
 
@@ -90,11 +90,11 @@ ___
 
 Шаблонизатор **handlebars** обрабатывает файлы с расширением **.hbs**, в папках:
 
-**- app/pages**
+`- app/pages`
 
-**- app/components**
+`- app/components`
 
-**- app/core/helpers**
+`- app/core/helpers`
 
 ___
 
