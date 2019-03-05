@@ -15,7 +15,7 @@ module.exports = (item,callback) => {
                 callback();
             }
         } else {
-            notify(`${item} is not found, please use "init" command`,'error');
+            notify(`${item} не найден! \nПожалуйста воспользуйтесь командой "wnp init" для инициализации проекта!`,'error');
             return false;
         }
 

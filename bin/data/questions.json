@@ -2,51 +2,31 @@
   "init": {
     "name": "result",
     "type": "input",
-    "message": "What is your project name?"
+    "message": "Пожалуйста, введите название проекта!"
   },
   "clean": {
     "name": "result",
     "type": "confirm",
-    "message": "Do you want to clean current folder?"
-  },
-  "dep": {
-    "name": "result",
-    "type": "confirm",
-    "message": "Do uou want to install dependencies?"
+    "message": "Хотите очистить текущую папку?"
   },
   "component": {
     "name": "result",
     "type": "input",
-    "message": "Please enter component name"
+    "message": "Пожалуйста, введите название компонента"
   },
   "page": {
     "name": "result",
     "type": "input",
-    "message": "Please enter page name"
-  },
-  "type": {
-    "name": "result",
-    "type": "rawlist",
-    "message": "What component do you want to create?",
-    "choices": [
-      "Full component (hbs,js,scss)",
-      "Only 'hbs' file"
-    ]
+    "message": "Пожалуйста, введите название страницы"
   },
   "repository": {
     "name": "result",
     "type": "input",
-    "message": "Please enter your repository url"
-  },
-  "branch": {
-    "name": "result",
-    "type": "input",
-    "message": "Please enter the branch to which you want to add changes.",
-    "default": "gh-pages"
+    "message": "Пожалуйста, введите адрес вашего репозитория"
   },
   "build": {
     "name": "result",
     "type": "confirm",
-    "message": "Do you want to build project?"
+    "message": "Хотите собрать проект?"
   }
 }

@@ -18,12 +18,12 @@ module.exports = ( params,callback ) => {
                     notify(err,'error');
                     throw err;
                 } else {
-                    notify(`Package successfully update`,'success');
+                    notify(`Данные успешно обновлены! :)`,'success');
                     callback(true);
                 }
             });
         });
     } else {
-        notify('Params is missing', 'error')
+        notify('Данные не найдены!', 'error')
     }
 };

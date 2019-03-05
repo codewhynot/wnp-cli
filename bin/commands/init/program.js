@@ -12,7 +12,7 @@ const updatePackage = require('./services/update-package');
 const downloadProject = require('./services/download-project');
 
 //variables
-const spinner = ora('Installing dependencies');
+const spinner = ora('Подождите, выполняется установка зависимостей');
 
 
 
@@ -23,9 +23,9 @@ const initProject = project => {
         spinner.start();
         shell.exec('npm install', () => {
           spinner.stop();
-          notify('Whynotpack is ready to work', 'success');
-          notify('Use "wnp dev" to start server', 'info');
-          notify('Enjoy!','success');
+          notify('Whynotpack готов к работе', 'success');
+          notify('Выполните комманду "wnp dev" для запуска сервера', 'info');
+          notify('Наслаждайтесь! ;)','success');
         });
       }
     });
@@ -39,7 +39,7 @@ const validateProject = callback => {
       if (match) {
         callback(project);
       } else {
-        notify('Please use a valid project name', 'error');
+        notify('Пожалуйста, введите корректное название проекта!', 'error');
         validateProject(callback);
         return false;
       }

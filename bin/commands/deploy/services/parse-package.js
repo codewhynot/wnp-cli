@@ -12,7 +12,7 @@ module.exports = callback => {
     check('package.json', () => {
         readFile(resolve(process.cwd(), 'package.json'), (err,data) => {
             if (data.toString() === '') {
-                notify('Package is not found, please use "init" command','error');
+                notify('Файл package.json не найден, или пуст. \nВоспользуйтесь командой "wnp init", для инициализации проекта!','error');
             } else {
                 if (err) {
                     notify(err,'error');

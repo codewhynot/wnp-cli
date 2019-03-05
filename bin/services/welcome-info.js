@@ -14,6 +14,6 @@ module.exports = data => {
     });
 
   console.log(
-      visual.cyan(data ? `\n Used command ${data} \n` : '\n Welcome to WHYNOTPACK-CLI \n'),
+      visual.cyan(data ? `\n Команда ${data} \n` : '\n Добро пожаловать в WHYNOTPACK-CLI \n'),
   )
 };

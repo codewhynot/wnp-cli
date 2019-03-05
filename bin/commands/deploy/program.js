@@ -12,7 +12,7 @@ const parsePackage = require('./services/parse-package');
 const checkFolder = require('./services/check-folder');
 
 //variables
-const spinner = ora('Deploying project');
+const spinner = ora('Подождите, выполняется публикация проекта');
 
 const repoAsker = callback => {
     ask('repository', repo => {
@@ -22,7 +22,7 @@ const repoAsker = callback => {
                 callback({repository: repo, deployBranch: 'gh-pages'});
             });
         } else {
-            notify('Please enter valid url', 'error');
+            notify('Пожалуйста, введите корректный адрес репозитория', 'error');
             repoAsker(callback);
             return false;
         }
@@ -39,7 +39,7 @@ const makeProgramm = ( data,path,callback ) => {
         }, response => {
             spinner.stop();
             if (response) {
-                notify("Process error, this repository doesn't exist.", 'error');
+                notify("Уппс! Похоже такой репозиторий не существует. \nПопробуйте еще раз!", 'error');
                 repoAsker(response => {
                     makeProgramm(response,path,callback);
                 })
@@ -67,7 +67,7 @@ const validationPackage = callback => {
 module.exports = () => {
     validationPackage((data,path) => {
         makeProgramm(data, path, (response) => {
-            notify(`Your project is published!\n branch: ${response.deployBranch}\n repository: ${response.repository}`, 'success');
+            notify(`Ваш проект опубликован!\n Ветка: ${response.deployBranch}\n Репозиторий: ${response.repository}`, 'success');
         })
     });
 };

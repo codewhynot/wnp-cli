@@ -9,7 +9,7 @@ const notify = require('../../../services/notify');
 const ask = require('../../../services/asker');
 
 //variables
-const spinner = ora('Building project');
+const spinner = ora('Подождите, выполняется сборка проекта');
 
 module.exports = (item,callback) => {
     readdir(resolve(process.cwd()), (err, items) => {
@@ -21,12 +21,13 @@ module.exports = (item,callback) => {
                 callback(resolve(process.cwd(), 'build'));
             }
         } else {
-            notify('Build folder is not found', 'error');
+            notify('Папка "build" не найдена', 'error');
             ask('build', answer => {
                if (answer) {
                    spinner.start();
                    exec('npm run build', () => {
                        spinner.stop();
+                       notify('Проект успешно собран', 'success');
                        callback(resolve(process.cwd(), 'build'));
                    })
                }

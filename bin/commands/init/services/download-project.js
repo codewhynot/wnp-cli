@@ -11,7 +11,7 @@ module.exports = callback => {
         if (err) {
             notify(err,'error')
         } else {
-            notify('Project successfully created');
+            notify('Проект успешно создан! ;)');
             callback();
         }
     });

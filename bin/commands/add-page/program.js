@@ -25,7 +25,7 @@ const validatePageName = callback => {
             if (match) {
                 callback( path,page );
             } else {
-                notify('Please use a valid page name', 'error');
+                notify('Пожалуйста, введите корректное название страницы', 'error');
                 validatePageName(callback);
                 return;
             }

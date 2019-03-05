@@ -3,43 +3,43 @@
     {
       "init": {
         "name": "init",
-        "description": "Unpacks Whynotpack to the current folder."
+        "description": "Инициализирует проект в текущую директорию, и устанавливает зависимости."
       }
     },
     {
       "help": {
         "name": "help",
-        "description": "Display help information about Whynotpack-cli."
+        "description": "Отображает доступный список команд."
       }
     },
     {
       "add-page": {
         "name": "add-page",
-        "description": "Adds new page in your project"
+        "description": "Генерирует новую страницу в текущем проекте"
       }
     },
     {
       "add-component": {
         "name": "add-component",
-        "description": "Adds new component in your project."
+        "description": "Генерирует новый компонент в текущем проекте"
       }
     },
     {
       "deploy": {
         "name": "deploy",
-        "description": "Deploy your markup to gh-pages"
+        "description": "Выполняет публикацию на ваш репозиторий. Папка build в ветку gh-pages"
       }
     },
     {
       "build": {
         "name": "build",
-        "description": "Build project"
+        "description": "Собирает проект"
       }
     },
     {
       "dev": {
         "name": "dev",
-        "description": "Server startup"
+        "description": "Запускает сервер"
       }
     }
   ]

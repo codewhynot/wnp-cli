@@ -17,12 +17,12 @@ module.exports = ( path, component, callback ) => {
                     notify(err,'error');
                     throw err;
                 } else {
-                    notify('Components list successfully updated','success');
+                    notify('Список компонентов успешно обновлен! :)','success');
                     if (callback) callback();
                 }
             });
         } else {
-            notify('This component is already registered.','error');
+            notify('Такой компонент уже существует!','error');
             return false;
         }
     })

@@ -6,13 +6,13 @@ const ora = require('ora');
 const notify = require('../../services/notify');
 
 //variables
-const spinner = ora('Starting server');
+const spinner = ora('Запуск сервера');
 
 
 module.exports = () => {
     spinner.start();
     exec('npm run dev', () => {
-        notify('Server started successfully', 'success');
+        notify('Сервер успешно запущен! ;)', 'success');
     });
     setTimeout(() => {
         spinner.stop();

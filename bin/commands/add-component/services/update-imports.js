@@ -21,7 +21,7 @@ module.exports = ( component, path ) => {
                     notify(err,'error');
                     throw err;
                 } else {
-                    notify('@import successfully added','success');
+                    notify('@import успешно добавлен в файл стилей','success');
                 }
             });
         }

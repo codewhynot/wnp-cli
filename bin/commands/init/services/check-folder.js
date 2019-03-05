@@ -9,7 +9,7 @@ const ask = require('../../../services/asker');
 
 
 //variables
-const spinner = ora('Removing files');
+const spinner = ora('Подождите, выполняется очистка папки');
 
 module.exports = callback => {
     readdir(process.cwd(), (err,items) => {
@@ -20,7 +20,7 @@ module.exports = callback => {
             if (items.length <= 0) {
                 if (callback) callback();
             } else {
-                notify('Folder is not empty', 'error');
+                notify('Текущая папка не пуста!', 'error');
                 ask('clean', answer => {
                     if (answer) {
                         spinner.start();
@@ -34,7 +34,7 @@ module.exports = callback => {
                             }
                         })
                     } else {
-                        notify('Ok, enjoy your work!', 'success');
+                        notify('До встречи!', 'success');
                     }
                 });
             }

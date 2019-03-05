@@ -11,7 +11,7 @@ module.exports = ( path, page, type, content, callback ) => {
             notify(err,'error');
             throw err;
         } else {
-            notify(`File ${page+type} is created`, 'success');
+            notify(`Файл ${page+type} успешно создан! :)`, 'success');
             if (callback) callback();
         }
     });

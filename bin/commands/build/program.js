@@ -6,13 +6,13 @@ const ora = require('ora');
 const notify = require('../../services/notify');
 
 //variables
-const spinner = ora('Building project');
+const spinner = ora('Подождите, выполняется сборка проекта');
 
 
 module.exports = () => {
     spinner.start();
     exec('npm run build', () => {
        spinner.stop();
-       notify('Project successfully built', 'success');
+       notify('Проект успешно собран', 'success');
     });
 };

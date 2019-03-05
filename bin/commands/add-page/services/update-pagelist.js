@@ -17,12 +17,12 @@ module.exports = ( path, page, callback ) => {
                     notify(err,'error');
                     throw err;
                 } else {
-                    notify('Pagelist successfully updated','success');
+                    notify('Список страниц успешно обновлен! :)','success');
                     if (callback) callback();
                 }
             });
         } else {
-            notify('This page is already registered.','error');
+            notify('Такая страница уже существует, попробуйте еще раз!','error');
             return false;
         }
     })

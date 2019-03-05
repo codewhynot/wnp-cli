@@ -8,7 +8,7 @@ const notify = require('../../../services/notify');
 module.exports = (folder,callback) => {
     readdir(resolve(process.cwd(), folder), (err, items) => {
         if (err || !items.length) {
-            notify('Folder is not found or empty','error');
+            notify('Папка "pages" пуста или не существует! \nПожалуйста воспользуйтесь командой "wnp init".','error');
             return false;
         } else {
             callback(resolve(process.cwd(), folder));

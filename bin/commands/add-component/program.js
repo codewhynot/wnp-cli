@@ -34,7 +34,7 @@ const validateComponentName = callback => {
             if (match) {
                 callback( path,component );
             } else {
-                notify('Please use a valid component name', 'error');
+                notify('Пожалуйста введите корректное название компонента!', 'error');
                 validateComponentName(callback);
                 return;
             }

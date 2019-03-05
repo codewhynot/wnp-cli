@@ -11,7 +11,7 @@ module.exports = ( path, component, type, content, callback ) => {
             notify(err,'error');
             throw err;
         } else {
-            notify(`File ${component+type} is created`, 'success');
+            notify(`Файл ${component+type} успешно создан`, 'success');
             if (callback) callback();
         }
     });
