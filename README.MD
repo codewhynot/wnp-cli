@@ -1,67 +1,146 @@
-## Hi!
-___________
+## Whynotpack-cli
 
-#### Let's start
+Утилита для управления сборщиком Whynotpack. 
 
-##### Available commands
+<ul>
+    <li><a href="Установка">Установка</a></li>
+    <li><a href="Установка">Доступные команды</a></li>
+</ul>
+
+
+
+###### Установка
+
+Данный пакет нужно установить глобально, для того что бы можно было удобно управлять каждым проектом. 
+
+Для установки используйте команду: 
+
+`npm install -g @wnp/cli`
+
+###### Доступные команды
 
 `wnp init`
 
-Unpacking the project in the current directory
+Данная команда разворачивает **wnp** в текущую папку, и устанавливает нужные для работы зависимости. 
+___
 
 `wnp dev`
 
-Run "webpack-dev-server"
-
-`wnp add-component`
-
-Adds a component to the folder with the components of the current project.
-
-`wnp add-page`
-
-Adds a page to the folder with the pages of the current project, also reloads "webpack.config && webpack-dev-server" to handle new pages
+Данная команда запускает **webpack-dev-server**, с текущим проектом, который будет доступен по адресу http://localhost:3000 по умолчанию. 
+___
 
 `wnp build`
 
-Build the project in the folder "build"
+Данная команда компилирует весь проект в папку build, на выходе вы получаете html страницы, минифицированные css и js файлы, с map файлами для удобного дебагинга, и конечно же папку assets с контентом. 
+___
+
+`wnp add-component`
+
+Данная команда создаёт новый компонент по пути **app/components**, компонент состоит из трёх файлов:
+
+**- component.hbs (handlebars файл)**
+
+**- component.js (JavaScript файл)**
+
+**- component.scss (стилевой файл)**
+
+А так же автоматически импортирует стилевой файл компонента в главный стилевой файл. 
+___
+
+`wnp add-page`
+
+Данная команда создаёт новую страницу **(handlebars файл)** по пути **app/pages** и регистрирует её в конфиг файл. 
+Так же перезапускает **webpack-dev-server**, что бы **webpack** начал обрабатывать новую страницу. 
+___
+
+`wnp deploy`
+
+Данная команда публицирует вашу **build** папку на в ваш репозиторий, на ветку **gh-pages**, если вы предварительно указали url вашего репозитория в файле **package.json**. 
+Если вы не указывали адрес вашего репозитория, **wnp** попросит вас указать адрес и выполнит команду. 
+___
 
 `wnp help`
 
-List available commands
-
-___________________________
-
-
-## Builder
-
-#### Hierarchy
-
-###### app
-- assets [Here are all the assets]
-- components [Here are all the components]
-- core [Here are main.js, helpers, configs]
-- pages [Here are all the pages]
-
-___________________________
-
-#### Helpers
-
-`{{> icon src="icon-name.svg"}}` - Only icons in the assets/icons folder and only "svg".
-
-`{{> image src="icon-name.svg"}}` - Only images in the assets/images.
-
-#### Paths
-
-IN SCSS Files
-
-- images - "~images/image-name.ext" - Only images in the assets/images.
-- icons - "~icons/icon-name.svg" - Only icons in the assets/icons folder and only "svg".
-- fonts - "~fonts/font-name.ext" - Only fonts in the assets/fonts folder
+Данная команда отображает список доступных команд. 
+___
 
 
-#### Templates
+## Whynotpack
 
-use `{{> component/component}}` - components in components folder - (component-folder / component-name).
+Это простой и удобный сборщик верстки, стилей и JavaScript модулей. 
 
-ENJOY! ;)
+**WNP** - базируется на **webpack**, использует удобный шаблонизатор **handlebars**, поддерживает возможность вставлять **инлайновые SVG** посредством шорткодов.
 
+___
+
+#### Введение
+
+
+<ul>
+    <li><a href="Компоненты handlebars">Компоненты handlebars</a></li>
+    <li><a href="Хелперы handlebars">Хелперы handlebars</a></li>
+    <li><a href="Инлайновые SVG">Инлайновые SVG</a></li>
+    <li><a href="Картинки в html">Картинки в html</a></li>
+    <li><a href="Фавиконки">Фавиконки</a></li>
+    <li><a href="Пути в SCSS">Пути в SCSS</a></li>
+</ul>
+
+
+___
+
+Шаблонизатор **handlebars** обрабатывает файлы с расширением **.hbs**, в папках:
+
+**- app/pages**
+
+**- app/components**
+
+**- app/core/helpers**
+
+___
+
+###### Компоненты handlebars
+
+Компоненты импортируются посредством шорткода `{{> componentFolder/componentName}}` например:
+
+Если в папке **app/components** находится папка с компонентом **test**, то импортировать данный компонент можно **в любой .hbs файл**, посредством шорткода `{{> test/test}}`
+___
+
+###### Хелперы handlebars
+
+Хелперы или помощники, помогают переиспользовать повторяющиеся куски кода, и **могут быть импортированы в любой .hbs файл**, посредством шорткода `{{>helperName}}` . Папку с хелперами - **handlebars** обрабатывает по пути **app/core/helpers.** 
+___
+
+###### Инлайновые SVG
+
+В любом из **.hbs** вы можете вставить SVG иконку, посредством шорткода `{{>icon src="iconName.svg"}}` где **iconName** является названием SVG файла который вы хотите импортировать. Иконки находятся по пути **app/assets/icons**. 
+___
+
+###### Картинки в html
+
+Для картинок так же существует **хелпер (шорткод)** для того что бы вставить картинку **в любой .hbs файл**, достаточно импортировать его посредством шорткода `{{>image src="imageName.ext"}}`
+Где **imageName** название файла и **.ext** расширение файла **(png, jpg, svg, webp, и.т.д.)**
+**Handlebars** обрабатывает картинки по пути **app/assets/images**. 
+___
+
+###### Фавиконки
+
+В **wnp** подключение фавиконок так же является хелпером. И менять что то в самом файле нет необходимости. Если вы хотите заменить фавиконку вашего проекта, воспользуйтесь сервисом <a href="https://www.favicon-generator.org">Фавикон генератор</a>
+
+Выберите png картинку, загрузите в сервис, и вы получите архив с готовыми картинками. Переместите их по пути - **app/assets/favicons**
+___
+
+###### Пути в SCSS
+
+В стилевых файлах предусмотрены пути для использования картинок, иконок и шрифтов.
+ 
+`~images - app/assets/images`
+
+`~icons - app/assets/icons`
+
+`~fonts - app/assets/fonts`
+
+
+То есть, если вы хотите установить **Background image** на какой нибудь елемент в пути достаточно указать `~images/imageName.ext`
+___
+
+Наслаждайтесь ;)
